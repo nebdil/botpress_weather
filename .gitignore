@@ -51,4 +51,4 @@ jspm_packages
 .env
 
 #facebook-keys
-botpress-messenger.config.yml
+/botpress-messenger.config.yml
