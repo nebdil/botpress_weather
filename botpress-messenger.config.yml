@@ -2,13 +2,14 @@
 # This is regular YAML syntax. See http://docs.ansible.com/ansible/YAMLSyntax.html
 # You can override these settings with ENV variables. They are commented below.
 
-hostname: ENV['HOST_NAME'] # MESSENGER_HOST
 
-applicationID: ENV['APP_ID'] # MESSENGER_APP_ID
-accessToken: ENV[ACCESS_TOKEN] # MESSENGER_ACCESS_TOKEN
-appSecret: ENV[APP_SECRET] # MESSENGER_APP_SECRET
+hostname: ${process.env.HOST_NAME} # MESSENGER_HOST
 
-verifyToken: ENV[ACCESS_TOKEN] # MESSENGER_VERIFY_TOKEN
+applicationID: ${process.env.APP_ID} # MESSENGER_APP_ID
+accessToken: ${process.env.ACCESS_TOKEN} # MESSENGER_ACCESS_TOKEN
+appSecret: ${process.env.APP_SECRET} # MESSENGER_APP_SECRET
+
+verifyToken: ${process.env.ACCESS_TOKEN} # MESSENGER_VERIFY_TOKEN
 
 displayGetStarted: true
 # greetingMessage: ""

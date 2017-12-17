@@ -18,7 +18,7 @@
   Documentation: https://botpress.io/docs
   Our Slack Community: https://slack.botpress.io
 */
-
+require('dotenv').config()
 module.exports = function(bp) {
   // Listens for a first message (this is a Regex)
   // GET_STARTED is the first message you get on Facebook Messenger
