@@ -49,3 +49,6 @@ jspm_packages
 
 #dotenv
 .env
+
+#facebook-keys
+botpress-messenger.config.yml

@@ -3,13 +3,13 @@
 # You can override these settings with ENV variables. They are commented below.
 
 
-hostname: ${process.env.HOST_NAME} # MESSENGER_HOST
+hostname: "https://f41da403.ngrok.io" #${process.env.HOST_NAME} # MESSENGER_HOST
 
-applicationID: ${process.env.APP_ID} # MESSENGER_APP_ID
-accessToken: ${process.env.ACCESS_TOKEN} # MESSENGER_ACCESS_TOKEN
-appSecret: ${process.env.APP_SECRET} # MESSENGER_APP_SECRET
+applicationID: "1798356430174406" #${process.env.APP_ID} # MESSENGER_APP_ID
+accessToken: "EAAZAjmHwzOMYBAEf3fWhZBZCAaAUlnG9E0PyUMArgh7eh1qM8pDMAnoNfZCdvF5Czw7y4RtmJxYGkNCTokrkZCuDyZBJ61YUl7eqUYhHGBfXCgtdTozI7JAY9ajfyWMUZBxkXKmwl1UggKrpHvod4MEbC46yZCGt5ay4hoCWUncZCEZBpuA0d08UT0y0FztoGih5EZD" #${process.env.ACCESS_TOKEN} # MESSENGER_ACCESS_TOKEN
+appSecret: "8354373f73c318e681eb4e34985c3611" #${process.env.APP_SECRET} # MESSENGER_APP_SECRET
 
-verifyToken: ${process.env.ACCESS_TOKEN} # MESSENGER_VERIFY_TOKEN
+verifyToken: "EAAZAjmHwzOMYBAEf3fWhZBZCAaAUlnG9E0PyUMArgh7eh1qM8pDMAnoNfZCdvF5Czw7y4RtmJxYGkNCTokrkZCuDyZBJ61YUl7eqUYhHGBfXCgtdTozI7JAY9ajfyWMUZBxkXKmwl1UggKrpHvod4MEbC46yZCGt5ay4hoCWUncZCEZBpuA0d08UT0y0FztoGih5EZD" #${process.env.ACCESS_TOKEN} # MESSENGER_VERIFY_TOKEN
 
 displayGetStarted: true
 # greetingMessage: ""
