@@ -2,13 +2,13 @@
 # This is regular YAML syntax. See http://docs.ansible.com/ansible/YAMLSyntax.html
 # You can override these settings with ENV variables. They are commented below.
 
-hostname: "https://f41da403.ngrok.io" # MESSENGER_HOST
+hostname: ENV['HOST_NAME'] # MESSENGER_HOST
 
-applicationID: "1798356430174406" # MESSENGER_APP_ID
-accessToken: "EAAZAjmHwzOMYBAEf3fWhZBZCAaAUlnG9E0PyUMArgh7eh1qM8pDMAnoNfZCdvF5Czw7y4RtmJxYGkNCTokrkZCuDyZBJ61YUl7eqUYhHGBfXCgtdTozI7JAY9ajfyWMUZBxkXKmwl1UggKrpHvod4MEbC46yZCGt5ay4hoCWUncZCEZBpuA0d08UT0y0FztoGih5EZD" # MESSENGER_ACCESS_TOKEN
-appSecret: "8354373f73c318e681eb4e34985c3611" # MESSENGER_APP_SECRET
+applicationID: ENV['APP_ID'] # MESSENGER_APP_ID
+accessToken: ENV[ACCESS_TOKEN] # MESSENGER_ACCESS_TOKEN
+appSecret: ENV[APP_SECRET] # MESSENGER_APP_SECRET
 
-verifyToken: "EAAZAjmHwzOMYBAEf3fWhZBZCAaAUlnG9E0PyUMArgh7eh1qM8pDMAnoNfZCdvF5Czw7y4RtmJxYGkNCTokrkZCuDyZBJ61YUl7eqUYhHGBfXCgtdTozI7JAY9ajfyWMUZBxkXKmwl1UggKrpHvod4MEbC46yZCGt5ay4hoCWUncZCEZBpuA0d08UT0y0FztoGih5EZD" # MESSENGER_VERIFY_TOKEN
+verifyToken: ENV[ACCESS_TOKEN] # MESSENGER_VERIFY_TOKEN
 
 displayGetStarted: true
 # greetingMessage: ""
