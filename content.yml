@@ -1,26 +1,16 @@
 welcome:
   - typing: 2s
-    text: # Picks one randomly
+    text:
       - Hey there!
       - Hello {{user.first_name}}
       - Good day :)
   - text: Since you're here, you must be curious about the weather!
     typing: 2s
-  - text: Would you like to know what's the weather like where you are and some suggestions?
+  - text: Would you like to know what's the weather like where you are and get a very insightful suggestion?
     typing: 2s
     quick_replies:
       - <.B1> Yes
-      #Starting with a '.' before B1 will prepend the name of the bloc in uppercase
       - <.B2> No
-
-noSuggestion:
-  - typing: 2s
-    text:
-      - No worries, see you next time!
-
-goodbye:
-  - text: Goodbye, talk to you soon!
-    typing: true
 
 askLocation:
   - text: Please click this button for me to know where you are!
@@ -28,14 +18,19 @@ askLocation:
       - content_type: location
         title: location
 
+noSuggestion:
+  - typing: 2s
+    text:
+      - No worries, see you next time!
+
 askLocation_replyHot:
-  - text: You are located at {{ weather.name }}
+  - text: You are located in {{ weather.name }}
     typing: true
   - text: The highest today is {{ weather.main.temp_max }}
     typing: true
   - text: ... and lowest today is {{ weather.main.temp_min }} and it is {{ weather.weather[0].description }}
     typing: true
-  - It is amazing outside, you should go out and enjoy the weather!
+  - It is amazing outside, you should go out and enjoy the weather! (Cool insight right?)
 
 askLocation_replyWarm:
   - text: You are located in {{ weather.name }}
@@ -44,13 +39,20 @@ askLocation_replyWarm:
     typing: true
   - text: ... and lowest today is {{ weather.main.temp_min }} and it is {{ weather.weather[0].description }}
     typing: true
-  - You should maybe go out while you can still go out!
+  - You should maybe go out while you can still go out! (Cool insight right?)
 
 askLocation_replyCold:
-  - text: You are located at {{ weather.name }}
+  - text: You are located in {{ weather.name }}
     typing: true
   - text: The highest today is {{ weather.main.temp_max }}
     typing: true
   - text: ... and lowest today is {{ weather.main.temp_min }} and it is {{ weather.weather[0].description }}
     typing: true
-  - Definitely stay in today!
+  - Definitely stay in! (Cool insight right?)
+
+thanks:
+  - You are welcome, anytime!
+
+goodbye:
+  - text: Goodbye, talk to you soon!
+    typing: true

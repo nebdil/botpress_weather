@@ -2,18 +2,9 @@ require('dotenv').config()
 const request = require('request');
 
 module.exports = function(bp) {
-  // Listens for a first message (this is a Regex)
-  // GET_STARTED is the first message you get on Facebook Messenger
   bp.hear(/GET_STARTED|hello|hi|test|hey|holla/i, (event, next) => {
+    // GET_STARTED is the first message you get on Facebook Messenger
     event.reply('#welcome')
-  })
-
-  // if leaving
-  bp.hear({
-    type: /message|text/i,
-    text: /exit|bye|goodbye|quit|done|leave|stop/i
-  }, (event, next) => {
-    event.reply('#goodbye')
   })
 
   // if wants some suggestions
@@ -45,5 +36,15 @@ module.exports = function(bp) {
         }
       }
     })
+  })
+
+  // if the user thanks me
+  bp.hear(/thank/i, (event, next) => {
+    event.reply('#thanks')
+  })
+
+  // if leaving
+  bp.hear(/exit|bye|goodbye|quit|done|leave|stop/i, (event, next) => {
+    event.reply('#goodbye')
   })
 }
