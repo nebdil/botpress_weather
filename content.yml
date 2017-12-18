@@ -4,22 +4,23 @@ welcome:
       - Hey there!
       - Hello {{user.first_name}}
       - Good day :)
-  - text: Since you're here, you are looking to do something!
+  - text: Since you're here, you must be curious about the weather!
     typing: 2s
-  - text: Would you like some suggestions?
+  - text: Would you like to know what's the weather like where you are and some suggestions?
     typing: 2s
     quick_replies:
       - <.B1> Yes
       #Starting with a '.' before B1 will prepend the name of the bloc in uppercase
       - <.B2> No
+
 noSuggestion:
   - typing: 2s
     text:
       - No worries, see you next time!
+
 goodbye:
-  - text: You are leaving because of reason {{reason}}
+  - text: Goodbye, talk to you soon!
     typing: true
-  - Hope to see you back again soon! # if no other properties, you can just send a strings
 
 askLocation:
   - text: Please click this button for me to know where you are!
@@ -27,10 +28,29 @@ askLocation:
       - content_type: location
         title: location
 
-askLocation_reply:
+askLocation_replyHot:
   - text: You are located at {{ weather.name }}
     typing: true
   - text: The highest today is {{ weather.main.temp_max }}
     typing: true
-  - text: ... and lowest today is {{ weather.main.temp_min }}
+  - text: ... and lowest today is {{ weather.main.temp_min }} and it is {{ weather.weather[0].description }}
     typing: true
+  - It is amazing outside, you should go out and enjoy the weather!
+
+askLocation_replyWarm:
+  - text: You are located in {{ weather.name }}
+    typing: true
+  - text: The highest today is {{ weather.main.temp_max }}
+    typing: true
+  - text: ... and lowest today is {{ weather.main.temp_min }} and it is {{ weather.weather[0].description }}
+    typing: true
+  - You should maybe go out while you can still go out!
+
+askLocation_replyCold:
+  - text: You are located at {{ weather.name }}
+    typing: true
+  - text: The highest today is {{ weather.main.temp_max }}
+    typing: true
+  - text: ... and lowest today is {{ weather.main.temp_min }} and it is {{ weather.weather[0].description }}
+    typing: true
+  - Definitely stay in today!
