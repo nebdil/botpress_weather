@@ -1,28 +1,36 @@
-welcome: # this is the #welcome bloc referenced in index.js
-  - typing: true
+welcome:
+  - typing: 2s
     text: # Picks one randomly
       - Hey there!
       - Hello {{user.first_name}}
       - Good day :)
   - text: Since you're here, you are looking to do something!
     typing: 2s
-  - text: Ask me 'What should I do today?'
-    typing: true
-  - wait: 5s
-
+  - text: Would you like some suggestions?
+    typing: 2s
+    quick_replies:
+      - <.B1> Yes
+      #Starting with a '.' before B1 will prepend the name of the bloc in uppercase
+      - <.B2> No
+noSuggestion:
+  - typing: 2s
+    text:
+      - No worries, see you next time!
 goodbye:
   - text: You are leaving because of reason {{reason}}
     typing: true
   - Hope to see you back again soon! # if no other properties, you can just send a strings
 
 askLocation:
-  - text: Please click this button to give me your location
+  - text: Please click this button for me to know where you are!
     quick_replies:
       - content_type: location
         title: location
 
 askLocation_reply:
-  - |
-    You are located at..
-    Latitude: {{coordinates.lat}}
-    Longitude: {{coordinates.long}}
+  - text: You are located at {{ weather.name }}
+    typing: true
+  - text: The highest today is {{ weather.main.temp_max }}
+    typing: true
+  - text: ... and lowest today is {{ weather.main.temp_min }}
+    typing: true

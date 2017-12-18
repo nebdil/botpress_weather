@@ -8,6 +8,7 @@
     "botpress-messenger": "^2.2.9",
     "botpress-web": "1.x",
     "dotenv": "^4.0.0",
+    "request": "^2.83.0",
     "sqlite3": "^3.1.13"
   },
   "scripts": {

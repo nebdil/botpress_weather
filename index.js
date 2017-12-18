@@ -1,24 +1,6 @@
-/*
-  CONGRATULATIONS on creating your first Botpress bot!
-
-  This is the programmatic entry point of your bot.
-  Your bot's logic resides here.
-
-  Here's the next steps for you:
-  1. Read this file to understand how this simple bot works
-  2. Read the `content.yml` file to understand how messages are sent
-  3. Install a connector module (Facebook Messenger and/or Slack)
-  4. Customize your bot!
-
-  Happy bot building!
-
-  The Botpress Team
-  ----
-  Getting Started (Youtube Video): https://www.youtube.com/watch?v=HTpUmDz9kRY
-  Documentation: https://botpress.io/docs
-  Our Slack Community: https://slack.botpress.io
-*/
 require('dotenv').config()
+const request = require('request');
+
 module.exports = function(bp) {
   // Listens for a first message (this is a Regex)
   // GET_STARTED is the first message you get on Facebook Messenger
@@ -37,13 +19,32 @@ module.exports = function(bp) {
     })
   })
 
-  // Ask for location
-  bp.hear('What should I do today?', (event, next) => {
+  // if wants some suggestions
+  bp.hear('WELCOME.B1', (event, next) => {
     event.reply('#askLocation')
   })
 
-  bp.hear({ type: 'location' }, (event, next) => {
-    event.reply('#askLocation_reply', { coordinates: event.raw.payload.coordinates })
+  // if does not want suggestions
+  bp.hear('WELCOME.B2', (event, next) => {
+    event.reply('#noSuggestion')
   })
 
+  // API call for current weather
+  bp.hear({ type: 'location' }, (event, next) => {
+    let lat = event.raw.payload.coordinates.lat;
+    let lon = event.raw.payload.coordinates.long;
+    let url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${process.env.W_API}`
+    request(url, function (err, response, body) {
+      if(err){
+        console.log('error:', error);
+      } else {
+        let weather = JSON.parse(body)
+        console.log('description: ', weather.weather[0].description)
+        console.log('temp min: ', weather.main.temp_min)
+        console.log('temp max: ', weather.main.temp_max)
+        console.log('city: ', weather.name)
+        event.reply('#askLocation_reply', { weather: weather })
+      }
+    });
+  })
 }
